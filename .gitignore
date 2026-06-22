@@ -1,0 +1,101 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Package manager caches
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# TypeScript / build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vite/
+.cache/
+.turbo/
+.parcel-cache/
+
+# Compiled files
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.*
+!.env.example
+!.env.local.example
+!.env.development.example
+!.env.production.example
+
+# Docker local/runtime files
+docker-data/
+.docker/
+*.pid
+
+# Docker Compose override files with local secrets/settings
+docker-compose.override.yml
+compose.override.yml
+
+# Keep Docker deployment files tracked
+!Dockerfile
+!Dockerfile.*
+!docker-compose.yml
+!compose.yml
+!.dockerignore
+
+# Database / local storage
+*.sqlite
+*.sqlite3
+*.db
+data/
+tmp/
+temp/
+
+# Test output
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# Game/editor generated files
+*.replay
+*.save
+*.sav
+*.map.cache
+*.assetcache
+
+# IDEs / editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Certificates / keys
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Misc
+.envrc
