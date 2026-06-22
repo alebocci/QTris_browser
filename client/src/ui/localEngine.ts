@@ -146,7 +146,7 @@ export class LocalEngine {
   }
   endTurn() {
     if (this.state.phase!=='ops') return;
-    if (this.state.playsThisTurn < 2) { alert('Devi giocare esattamente 2 carte'); return; }
+    if (this.state.playsThisTurn < 2) { alert('You must play exactly 2 cards'); return; }
     if (this.state.turnIndex>=this.state.config.totalRounds && this.state.active==='B') {
       this.state.phase='measure';
       this.state.measurement = computeMeasurement(this.state, this.rng);

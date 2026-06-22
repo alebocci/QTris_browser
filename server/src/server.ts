@@ -94,8 +94,8 @@ wss.on('connection', (ws: HeartWS) => {
 
     if (msg.type === 'join') {
       const lr = rooms.get(msg.roomId);
-      if (!lr) { ws.send(JSON.stringify({ type: 'error', message: 'stanza non trovata' } as WsServerMsg)); return; }
-      if (lr.ready >= 2) { ws.send(JSON.stringify({ type: 'error', message: 'stanza piena' } as WsServerMsg)); return; }
+      if (!lr) { ws.send(JSON.stringify({ type: 'error', message: 'Room not found' } as WsServerMsg)); return; }
+      if (lr.ready >= 2) { ws.send(JSON.stringify({ type: 'error', message: 'Room is full' } as WsServerMsg)); return; }
       currentRoom = lr;
       pid = 'B';
       lr.room.addClient(ws, 'B');
@@ -112,7 +112,7 @@ wss.on('connection', (ws: HeartWS) => {
     }
 
     if (!currentRoom || !pid) {
-      ws.send(JSON.stringify({ type: 'error', message: 'crea o unisciti a una stanza prima' } as WsServerMsg));
+      ws.send(JSON.stringify({ type: 'error', message: 'Create or join a room first' } as WsServerMsg));
       return;
     }
 

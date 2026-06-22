@@ -110,13 +110,13 @@ export function doMulligan(state: GameState, pid: PlayerId, indices: number[]) {
 }
 
 export function playCard(state: GameState, pid: PlayerId, card: Card, target: CellId | null): string | null {
-  if (state.phase !== 'ops') return 'fase non valida';
-  if (state.active !== pid) return 'non è il tuo turno';
+  if (state.phase !== 'ops') return 'Invalid phase';
+  if (state.active !== pid) return 'It is not your turn';
   const hand = state.hands[pid];
   const idx = hand.indexOf(card);
-  if (idx === -1) return 'carta non in mano';
-  if (state.playsThisTurn >= 2) return 'hai già giocato 2 carte';
-  if (card !== 'I' && (target===null || !(target in state.grid))) return 'manca il bersaglio';
+  if (idx === -1) return 'Card is not in your hand';
+  if (state.playsThisTurn >= 2) return 'You have already played 2 cards';
+  if (card !== 'I' && (target===null || !(target in state.grid))) return 'Missing target';
 
   hand.splice(idx, 1);
   state.discard.push(card);
@@ -129,9 +129,9 @@ export function playCard(state: GameState, pid: PlayerId, card: Card, target: Ce
 }
 
 export function endTurn(state: GameState, pid: PlayerId): string | null {
-  if (state.phase !== 'ops') return 'fase non valida';
-  if (state.active !== pid) return 'non è il tuo turno';
-  if (state.playsThisTurn < 2) return 'devi giocare esattamente 2 carte';
+  if (state.phase !== 'ops') return 'Invalid phase';
+  if (state.active !== pid) return 'It is not your turn';
+  if (state.playsThisTurn < 2) return 'You must play exactly 2 cards';
 
   const totalRounds = state.config.totalRounds ?? 5;
   if (state.turnIndex >= totalRounds && state.active === 'B') {
